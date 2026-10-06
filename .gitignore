@@ -1,0 +1,13 @@
+# Claves y datos privados (nunca subir)
+secret_config.php
+secret_anthropic.php
+gemini_api_key.php
+anthropic_api_key.php
+datos/*
+!datos/.htaccess
+*.csv
+*.jsonl
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

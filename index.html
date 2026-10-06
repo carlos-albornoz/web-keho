@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>KEHO · Automatización, IA y Software a medida para tu negocio</title>
+  <meta name="description" content="KEHO automatiza tu negocio con Inteligencia Artificial, chatbots de WhatsApp, software de inventario y dashboards de datos. Restaurantes, comercios y PYMEs. Mérida, Venezuela y remoto.">
+  <meta name="theme-color" content="#030507">
+  <meta property="og:title" content="KEHO · Ideas que se convierten en soluciones">
+  <meta property="og:description" content="Chatbots IA en WhatsApp, software a medida y analítica de datos para que vendas más y operes mejor.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Unbounded:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="styles.css?v=20261010">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<!-- ============ SVG sprite: logo + iconos de marca ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gk-stem" x1="863" y1="562" x2="723" y2="1024" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#14c6e8"/><stop offset=".45" stop-color="#1b86f2"/><stop offset="1" stop-color="#2156e6"/></linearGradient>
+    <linearGradient id="gk-leg" x1="930" y1="820" x2="1180" y2="1024" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1c72ef"/><stop offset=".55" stop-color="#11c2d2"/><stop offset="1" stop-color="#16e3a0"/></linearGradient>
+    <linearGradient id="gk-rib" x1="905" y1="640" x2="1015" y2="760" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#10e895"/><stop offset=".42" stop-color="#12d9a8"/><stop offset=".56" stop-color="#1a8ff3"/><stop offset="1" stop-color="#1f66ee"/></linearGradient>
+    <linearGradient id="g-icon" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2f6bff"/><stop offset=".6" stop-color="#18b6ff"/><stop offset="1" stop-color="#19e6a6"/></linearGradient>
+  </defs>
+  <symbol id="keho-k" viewBox="723 432 489 592">
+    <path d="M723 562H863V1024H723Z" fill="url(#gk-stem)"/>
+    <path d="M955 835L1012 785L1212 1024H1075C1032 1024 1006 1010 986 986L905 886Z" fill="url(#gk-leg)"/>
+    <path d="M723 1024V960C740 822 818 752 880 690L1027 545L975 505L1212 432L1190 688L1137 642L930 860C886 906 863 942 863 990V1024Z" fill="url(#gk-rib)"/>
+    <path d="M1160 468L905 742C860 790 800 830 760 905" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="keho-k-mono" viewBox="723 432 489 592">
+    <path d="M723 562H863V1024H723ZM955 835L1012 785L1212 1024H1075C1032 1024 1006 1010 986 986L905 886ZM723 1024V960C740 822 818 752 880 690L1027 545L975 505L1212 432L1190 688L1137 642L930 860C886 906 863 942 863 990V1024Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="7" width="16" height="11" rx="4"/><path d="M12 3v4M9 12h.01M15 12h.01M9.5 15h5M8 18l-2 3 4-3"/></g></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18Z"/><path d="M9 14h6M12 11v6"/></g></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></g></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/><path d="M16 7h4v4"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z" fill="currentColor"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48a.92.92 0 0 0-.66.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></g></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></g></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.3 7.5 9.5 4.3-1.2 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.2 2.2 4.4-4.4"/></g></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></g></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l8-10.5h-6L13 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12 20 4l-4 16-4-7-8-1Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3Z"/></g></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5" opacity=".55"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 20v-4h-4"/></g></symbol>
+  <symbol id="i-split" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/><path d="M12 12h9" opacity=".55"/></g></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v4"/><rect x="4" y="9" width="17" height="11" rx="2.5"/><path d="M16.5 14.5h.01"/></g></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path fill="currentColor" d="M9.6 6C6.5 7.3 4.5 9.9 4.5 13.4V18h6v-6H7.6c.2-1.9 1.4-3.3 3.2-4.2L9.6 6Zm9 0c-3.1 1.3-5.1 3.9-5.1 7.4V18h6v-6h-2.9c.2-1.9 1.4-3.3 3.2-4.2L18.6 6Z"/></symbol>
+</svg>
+
+<!-- ============ 1. HEADER STICKY ============ -->
+<header class="nav" data-nav>
+  <div class="nav-inner container">
+    <a class="brand" href="#top" aria-label="KEHO, ir al inicio">
+      <svg class="brand-k" aria-hidden="true"><use href="#keho-k"/></svg>
+      <span class="brand-word">KEHO</span>
+    </a>
+    <nav class="nav-links" aria-label="Principal" data-menu>
+      <a href="#servicios">Servicios</a>
+      <a href="#demos">Demos</a>
+      <a href="#planes">Planes</a>
+      <a href="#casos">Casos</a>
+      <a class="nav-mobile-cta btn btn-primary" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20quiero%20agendar%20una%20auditor%C3%ADa%20para%20mi%20negocio." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar Auditoría
+      </a>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20quiero%20agendar%20una%20auditor%C3%ADa%20para%20mi%20negocio." target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#i-wa"/></svg><span>Agendar Auditoría</span>
+    </a>
+    <button class="nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false" data-burger><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ 2. HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-mesh"></div>
+    <canvas class="hero-canvas" data-nodes></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-fade"></div>
+  </div>
+  <div class="container hero-inner">
+    <p class="eyebrow reveal"><span class="pulse-dot"></span> Automatización · IA · Software · Datos</p>
+    <h1 class="hero-title reveal">Ideas que se convierten en <span class="grad-text">soluciones.</span></h1>
+    <p class="hero-sub reveal">Automatizamos tu negocio con Inteligencia Artificial, software a medida y análisis de datos para que vendas más y operes mejor.</p>
+    <div class="hero-ctas reveal">
+      <a class="btn btn-primary btn-lg" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20quiero%20automatizar%20mi%20negocio." target="_blank" rel="noopener" data-magnetic>
+        <svg aria-hidden="true"><use href="#i-wa"/></svg> Escríbenos por WhatsApp
+      </a>
+      <a class="btn btn-ghost btn-lg" href="#demos">
+        <span class="play-ring"><svg aria-hidden="true"><use href="#i-play"/></svg></span> Ver Demos en Vivo
+      </a>
+    </div>
+    <ul class="hero-chips reveal" aria-label="Beneficios">
+      <li><svg aria-hidden="true"><use href="#i-bolt"/></svg> Atención 24/7 con IA</li>
+      <li><svg aria-hidden="true"><use href="#i-shield"/></svg> Sistemas seguros y escalables</li>
+      <li><svg aria-hidden="true"><use href="#i-chart"/></svg> Decisiones con datos reales</li>
+    </ul>
+  </div>
+  <a class="hero-scroll" href="#confianza" aria-label="Seguir bajando"><span></span></a>
+</section>
+
+<!-- ============ 3. SOCIAL PROOF ============ -->
+<section class="proof" id="confianza" aria-label="Empresas que confían">
+  <div class="container">
+    <p class="proof-line reveal">Tecnología de nivel corporativo, accesible para tu negocio.</p>
+    <div class="marquee reveal" aria-hidden="false">
+      <ul class="marquee-track">
+        <li class="logo-item logo-real"><a href="https://www.instagram.com/festejosmonsalve_oficial/" target="_blank" rel="noopener" aria-label="Festejos Monsalve, ver su perfil oficial"><img src="assets/img/festejos-monsalve.webp" alt="" width="26" height="29" loading="lazy" decoding="async">Festejos <b>Monsalve</b></a></li>
+        <li class="logo-item"><span class="lg-mark lg-a"></span>Andina<b>Foods</b></li>
+        <li class="logo-item"><span class="lg-mark lg-b"></span>MERCA<b>LAGO</b></li>
+        <li class="logo-item"><span class="lg-mark lg-c"></span>Café <b>Sierra</b></li>
+        <li class="logo-item"><span class="lg-mark lg-d"></span>NOVA<b>RETAIL</b></li>
+        <li class="logo-item"><span class="lg-mark lg-e"></span>Grupo <b>Albarregas</b></li>
+        <li class="logo-item logo-real" aria-hidden="true"><a href="https://www.instagram.com/festejosmonsalve_oficial/" target="_blank" rel="noopener" tabindex="-1" aria-label="Festejos Monsalve, ver su perfil oficial"><img src="assets/img/festejos-monsalve.webp" alt="" width="26" height="29" loading="lazy" decoding="async">Festejos <b>Monsalve</b></a></li>
+        <li class="logo-item" aria-hidden="true"><span class="lg-mark lg-a"></span>Andina<b>Foods</b></li>
+        <li class="logo-item" aria-hidden="true"><span class="lg-mark lg-b"></span>MERCA<b>LAGO</b></li>
+        <li class="logo-item" aria-hidden="true"><span class="lg-mark lg-c"></span>Café <b>Sierra</b></li>
+        <li class="logo-item" aria-hidden="true"><span class="lg-mark lg-d"></span>NOVA<b>RETAIL</b></li>
+        <li class="logo-item" aria-hidden="true"><span class="lg-mark lg-e"></span>Grupo <b>Albarregas</b></li>
+      </ul>
+    </div>
+    <p class="demo-note">Festejos Monsalve es cliente de KEHO; las demás son marcas de ejemplo.</p>
+  </div>
+</section>
+
+<!-- ============ 4. SERVICIOS POR NICHO ============ -->
+<section class="section services" id="servicios">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="kicker"><span>01</span> Servicios por nicho</p>
+      <h2>Encontramos el cuello de botella. <span class="grad-text">Lo eliminamos con tecnología.</span></h2>
+      <p class="lead">Cada negocio pierde dinero en un lugar distinto. Pasa el cursor (o toca) cada tarjeta para ver el problema y cómo lo resolvemos.</p>
+    </header>
+
+    <div class="svc-grid">
+      <article class="svc-card reveal" tabindex="0" data-tilt>
+        <div class="svc-glow" aria-hidden="true"></div>
+        <div class="svc-top">
+          <span class="svc-icon"><svg aria-hidden="true"><use href="#i-bot"/></svg></span>
+          <span class="svc-tag">Restaurantes y Delivery</span>
+        </div>
+        <div class="svc-body">
+          <div class="svc-face svc-problem">
+            <p class="svc-label">El problema</p>
+            <h3>Ventas perdidas por responder tarde.</h3>
+            <p>Cada mensaje sin contestar en WhatsApp es un cliente que pide en otro lado.</p>
+          </div>
+          <div class="svc-face svc-solution">
+            <p class="svc-label is-sol">La solución KEHO</p>
+            <h3>Chatbot IA en WhatsApp.</h3>
+            <p>Toma pedidos automáticos, muestra el menú, calcula el total y confirma el delivery en segundos, 24/7.</p>
+          </div>
+        </div>
+        <span class="svc-hint">Ver solución <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </article>
+
+      <article class="svc-card reveal" tabindex="0" data-tilt>
+        <div class="svc-glow" aria-hidden="true"></div>
+        <div class="svc-top">
+          <span class="svc-icon"><svg aria-hidden="true"><use href="#i-cloud"/></svg></span>
+          <span class="svc-tag">Comercios y Tiendas</span>
+        </div>
+        <div class="svc-body">
+          <div class="svc-face svc-problem">
+            <p class="svc-label">El problema</p>
+            <h3>Descontrol de stock y caja.</h3>
+            <p>Faltantes, mercancía que se vence y cierres de caja que no cuadran al final del día.</p>
+          </div>
+          <div class="svc-face svc-solution">
+            <p class="svc-label is-sol">La solución KEHO</p>
+            <h3>Software de inventario a medida.</h3>
+            <p>Inventario, ventas y cierres de caja en minutos, con alertas de stock bajo y reportes automáticos.</p>
+          </div>
+        </div>
+        <span class="svc-hint">Ver solución <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </article>
+
+      <article class="svc-card reveal" tabindex="0" data-tilt>
+        <div class="svc-glow" aria-hidden="true"></div>
+        <div class="svc-top">
+          <span class="svc-icon"><svg aria-hidden="true"><use href="#i-code"/></svg></span>
+          <span class="svc-tag">PYMEs y Servicios</span>
+        </div>
+        <div class="svc-body">
+          <div class="svc-face svc-problem">
+            <p class="svc-label">El problema</p>
+            <h3>Una web obsoleta que no vende.</h3>
+            <p>Lenta, sin versión móvil y sin una forma clara de convertir visitas en clientes.</p>
+          </div>
+          <div class="svc-face svc-solution">
+            <p class="svc-label is-sol">La solución KEHO</p>
+            <h3>E-commerce y Landing Pages de alta conversión.</h3>
+            <p>Sitios rápidos, móviles primero, con pagos, catálogos y captura de clientes integrada.</p>
+          </div>
+        </div>
+        <span class="svc-hint">Ver solución <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </article>
+
+      <article class="svc-card reveal" tabindex="0" data-tilt>
+        <div class="svc-glow" aria-hidden="true"></div>
+        <div class="svc-top">
+          <span class="svc-icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+          <span class="svc-tag">Inteligencia de Negocios (BI)</span>
+        </div>
+        <div class="svc-body">
+          <div class="svc-face svc-problem">
+            <p class="svc-label">El problema</p>
+            <h3>Decisiones a ciegas.</h3>
+            <p>No sabes qué producto deja margen, qué día vendes más ni dónde se va el dinero.</p>
+          </div>
+          <div class="svc-face svc-solution">
+            <p class="svc-label is-sol">La solución KEHO</p>
+            <h3>Dashboards interactivos en tiempo real.</h3>
+            <p>Rentabilidad, márgenes y ventas por producto en una sola pantalla, desde tu teléfono.</p>
+          </div>
+        </div>
+        <span class="svc-hint">Ver solución <svg aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. DEMOS (SHOW, DON'T TELL) ============ -->
+<section class="section demos" id="demos">
+  <div class="demos-halo" aria-hidden="true"></div>
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="kicker"><span>02</span> Demos en vivo</p>
+      <h2>No te lo contamos. <span class="grad-text">Te lo mostramos.</span></h2>
+      <p class="lead">Así se ven y funcionan nuestras herramientas en el día a día de un negocio real.</p>
+    </header>
+
+    <div class="demo-wrap">
+      <div class="demo-toggles reveal" role="tablist" aria-label="Elegir demo">
+        <button class="demo-tab is-active" role="tab" aria-selected="true" data-demo="bot">
+          <span class="dt-icon"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
+          <span class="dt-text"><b>Probar Bot de WhatsApp</b><small>Pedidos automáticos en segundos</small></span>
+        </button>
+        <button class="demo-tab" role="tab" aria-selected="false" data-demo="inv">
+          <span class="dt-icon"><svg aria-hidden="true"><use href="#i-cloud"/></svg></span>
+          <span class="dt-text"><b>Ver Sistema de Inventario</b><small>Stock, ventas y cierre de caja</small></span>
+        </button>
+        <button class="demo-tab" role="tab" aria-selected="false" data-demo="dash">
+          <span class="dt-icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+          <span class="dt-text"><b>Ver Dashboard Comercial</b><small>Rentabilidad en tiempo real</small></span>
+        </button>
+        <button class="demo-tab" role="tab" aria-selected="false" data-demo="web">
+          <span class="dt-icon"><svg aria-hidden="true"><use href="#i-code"/></svg></span>
+          <span class="dt-text"><b>Crear Web como Servicio</b><small>Diseño, pagos y dominio, listo en días</small></span>
+        </button>
+        <p class="demo-foot">Simulación visual con datos de ejemplo.</p>
+      </div>
+
+      <div class="demo-stage reveal" data-stage="bot">
+        <!-- Tablet -->
+        <div class="device tablet" data-device="tablet">
+          <div class="tablet-screen">
+            <!-- Inventario -->
+            <div class="app app-inv" data-screen="inv">
+              <aside class="inv-side">
+                <svg class="inv-logo" aria-hidden="true"><use href="#keho-k"/></svg>
+                <span class="inv-nav is-on"></span><span class="inv-nav"></span><span class="inv-nav"></span><span class="inv-nav"></span>
+              </aside>
+              <div class="inv-main">
+                <div class="inv-head">
+                  <div><p class="app-mini">Bodega Central</p><h4>Inventario</h4></div>
+                  <div class="inv-search"><svg aria-hidden="true"><use href="#i-search"/></svg><span data-scan-text>Escanear producto…</span></div>
+                </div>
+                <div class="inv-kpis">
+                  <div class="kpi"><small>Productos</small><b>248</b></div>
+                  <div class="kpi"><small>Stock bajo</small><b class="warn" data-low>3</b></div>
+                  <div class="kpi"><small>Ventas hoy</small><b data-sales>$1.284</b></div>
+                </div>
+                <div class="inv-table" data-inv-rows>
+                  <div class="inv-row inv-th"><span>Producto</span><span>Stock</span><span>Nivel</span></div>
+                  <div class="inv-row" data-row="0"><span>Harina de maíz 1kg</span><span data-qty>86</span><span class="bar"><i style="--w:72%"></i></span></div>
+                  <div class="inv-row" data-row="1"><span>Queso blanco (kg)</span><span data-qty>14</span><span class="bar"><i style="--w:28%"></i></span></div>
+                  <div class="inv-row" data-row="2"><span>Refresco 2L</span><span data-qty>120</span><span class="bar"><i style="--w:90%"></i></span></div>
+                  <div class="inv-row" data-row="3"><span>Café molido 500g</span><span data-qty>9</span><span class="bar low"><i style="--w:16%"></i></span></div>
+                  <div class="inv-row" data-row="4"><span>Aceite 1L</span><span data-qty>41</span><span class="bar"><i style="--w:55%"></i></span></div>
+                </div>
+                <div class="inv-foot">
+                  <span class="inv-toast" data-toast>⚠ Café molido bajo mínimo · orden de compra generada</span>
+                  <span class="inv-close" data-close>Cierre de caja: <b>listo en 42 s</b> ✓</span>
+                </div>
+              </div>
+            </div>
+            <!-- Web como servicio -->
+            <div class="app app-web" data-screen="web">
+              <div class="web-bar">
+                <span class="web-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="web-url"><svg aria-hidden="true"><use href="#i-shield"/></svg><span data-web-url>cafesierra.com</span></span>
+                <span class="web-status" data-web-status>Diseñando…</span>
+              </div>
+              <div class="web-body">
+                <ol class="web-steps">
+                  <li data-step="1"><i></i>Diseño a medida</li>
+                  <li data-step="2"><i></i>Textos y SEO</li>
+                  <li data-step="3"><i></i>Pagos y WhatsApp</li>
+                  <li data-step="4"><i></i>Publicada en tu dominio</li>
+                </ol>
+                <div class="web-site">
+                  <div class="ws-nav"><b class="ws-logo">Café Sierra</b><span class="ws-link">Tienda</span><span class="ws-link">Origen</span><span class="ws-link">Contacto</span><i class="ws-cta">Pedir</i></div>
+                  <div class="ws-hero">
+                    <div class="ws-copy">
+                      <b class="ws-h">Café de altura, directo de los Andes</b>
+                      <span class="ws-p">Tostado artesanal, envío a todo el país.</span>
+                      <i class="ws-btn">Comprar ahora</i>
+                    </div>
+                    <div class="ws-img" aria-hidden="true"></div>
+                  </div>
+                  <div class="ws-cards">
+                    <div class="ws-card"><div class="ws-cimg"></div><span>Tostado medio</span><b>$8</b></div>
+                    <div class="ws-card"><div class="ws-cimg"></div><span>Tostado oscuro</span><b>$9</b></div>
+                    <div class="ws-card"><div class="ws-cimg"></div><span>Café en grano</span><b>$12</b></div>
+                  </div>
+                  <span class="ws-wa" aria-hidden="true"><svg><use href="#i-wa"/></svg></span>
+                </div>
+              </div>
+              <div class="web-foot">
+                <div class="web-progress"><i data-web-bar></i></div>
+                <span class="web-badge" data-web-badge>✓ Publicada · Velocidad 98/100 · Lista para vender</span>
+              </div>
+            </div>
+            <!-- Dashboard -->
+            <div class="app app-dash" data-screen="dash">
+              <div class="dash-head">
+                <div><p class="app-mini">Restaurante · Octubre</p><h4>Dashboard Comercial</h4></div>
+                <span class="live"><i></i> En vivo</span>
+              </div>
+              <div class="dash-kpis">
+                <div class="kpi"><small>Ventas del mes</small><b data-count="18420" data-prefix="$">$18.420</b><em class="up">▲ 12,4%</em></div>
+                <div class="kpi"><small>Margen neto</small><b data-count="32.4" data-suffix="%" data-dec="1">32,4%</b><em class="up">▲ 3,1 pts</em></div>
+                <div class="kpi"><small>Ticket promedio</small><b data-count="14.8" data-prefix="$" data-dec="2">$14,80</b><em class="up">▲ 6%</em></div>
+              </div>
+              <div class="dash-charts">
+                <div class="chart-card">
+                  <small>Ventas diarias</small>
+                  <svg class="line-chart" viewBox="0 0 300 110" preserveAspectRatio="none" aria-hidden="true">
+                    <defs><linearGradient id="lc-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18b6ff" stop-opacity=".35"/><stop offset="1" stop-color="#18b6ff" stop-opacity="0"/></linearGradient></defs>
+                    <path class="lc-area" d="M0 92 L25 84 L50 88 L75 70 L100 74 L125 58 L150 63 L175 45 L200 50 L225 34 L250 38 L275 20 L300 14 L300 110 L0 110Z" fill="url(#lc-fill)"/>
+                    <path class="lc-line" d="M0 92 L25 84 L50 88 L75 70 L100 74 L125 58 L150 63 L175 45 L200 50 L225 34 L250 38 L275 20 L300 14" fill="none" stroke="url(#g-icon)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="1"/>
+                  </svg>
+                </div>
+                <div class="chart-card">
+                  <small>Margen por categoría</small>
+                  <ul class="bars">
+                    <li><span>Platos</span><i style="--h:82%"></i></li>
+                    <li><span>Bebidas</span><i style="--h:96%"></i></li>
+                    <li><span>Postres</span><i style="--h:64%"></i></li>
+                    <li><span>Delivery</span><i style="--h:48%"></i></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- iPhone -->
+        <div class="device phone" data-device="phone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <div class="phone-screen app-bot">
+            <div class="wa-head">
+              <span class="wa-avatar"><svg aria-hidden="true"><use href="#keho-k"/></svg></span>
+              <div><b>Pizzería La Toscana</b><small data-wa-status>en línea · bot KEHO</small></div>
+            </div>
+            <div class="wa-body" data-wa-body aria-live="polite">
+              <div class="wa-msg in">Hola 👋 quiero pedir para delivery<time>20:14</time></div>
+              <div class="wa-msg out">¡Hola! Soy el asistente de La Toscana 🍕 Elige una opción:<br>1️⃣ Ver menú · 2️⃣ Promos · 3️⃣ Mi pedido<time>20:14</time></div>
+            </div>
+            <div class="wa-input"><span>Mensaje</span><i><svg aria-hidden="true"><use href="#i-send"/></svg></i></div>
+            <span class="wa-badge" data-wa-badge>⚡ Respondido en 2 s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. PLANES DE PRECIOS ============ -->
+<section class="section pricing" id="planes">
+  <div class="pricing-halo" aria-hidden="true"></div>
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="kicker"><span>03</span> Planes y precios</p>
+      <h2>Precios claros. <span class="grad-text">Resultados que se notan.</span></h2>
+      <p class="lead">Elige el plan según el problema que quieres resolver. Sabes cuánto inviertes desde el primer día, sin sorpresas.</p>
+    </header>
+
+    <div class="plans">
+      <!-- Básico -->
+      <article class="plan reveal">
+        <div class="plan-head">
+          <span class="plan-icon"><svg aria-hidden="true"><use href="#i-globe"/></svg></span>
+          <div><h3 class="plan-name">Básico</h3><p class="plan-type">Web Informativa</p></div>
+        </div>
+        <p class="plan-price"><span class="cur">$</span>199<span class="cents">.99</span></p>
+        <p class="plan-once">Pago único del proyecto</p>
+        <p class="plan-pitch">Presencia y credibilidad digital.</p>
+        <p class="plan-for">Para negocios que necesitan aparecer rápido en Google con una ficha profesional y un botón de contacto.</p>
+        <ul class="plan-list">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diseño adaptable a móviles (mobile-first)</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Inicio, Servicios/Productos, Quiénes Somos y Contacto</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Formulario de contacto y botón flotante de WhatsApp</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>SEO básico para Google (indexación local)</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Certificado SSL y dominio .com gratis por 1 año</li>
+        </ul>
+        <div class="plan-extra">
+          <p>Valor agregado</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-plus"/></svg>Integración con Google Maps / Google My Business</li>
+            <li><svg aria-hidden="true"><use href="#i-plus"/></svg>Enlaces estructurados a tus redes sociales (Bio Link)</li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost btn-block plan-cta" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20me%20interesa%20el%20Plan%20B%C3%A1sico%20(Web%20Informativa%2C%20%24199.99)." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg> Empezar ahora</a>
+      </article>
+
+      <!-- Plus (destacado) -->
+      <article class="plan is-featured reveal">
+        <span class="plan-badge">Más popular</span>
+        <div class="plan-head">
+          <span class="plan-icon"><svg aria-hidden="true"><use href="#i-bot"/></svg></span>
+          <div><h3 class="plan-name">Plus</h3><p class="plan-type">Catálogo + Bot de WhatsApp</p></div>
+        </div>
+        <p class="plan-price"><span class="cur">$</span>299<span class="cents">.99</span></p>
+        <p class="plan-once">Pago único del proyecto</p>
+        <p class="plan-pitch">Ahorra horas de atención con respuestas inmediatas 24/7.</p>
+        <p class="plan-for">Para comercios, restaurantes y empresas que reciben muchas consultas por WhatsApp.</p>
+        <ul class="plan-list">
+          <li class="is-base"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del Plan Básico</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Catálogo digital interactivo: el cliente arma su pedido y lo envía a tu WhatsApp</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Chatbot automatizado: bienvenida, catálogo, preguntas frecuentes, horario y captura de datos</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Panel sencillo para actualizar fotos, precios y stock</li>
+          <li class="is-limit"><svg aria-hidden="true"><use href="#i-check"/></svg>Catálogo de hasta 100 productos*</li>
+        </ul>
+        <div class="plan-extra">
+          <p>Valor agregado</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-plus"/></svg>Mensaje automático estructurado en WhatsApp («Hola, me interesa…»)</li>
+            <li><svg aria-hidden="true"><use href="#i-plus"/></svg>Descarga automática del catálogo en PDF</li>
+          </ul>
+        </div>
+        <a class="btn btn-primary btn-block plan-cta" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20me%20interesa%20el%20Plan%20Plus%20(Cat%C3%A1logo%20%2B%20Bot%20de%20WhatsApp%2C%20%24299.99)." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg> Empezar ahora</a>
+        <p class="plan-note">*Si tu catálogo supera los 100 productos, el costo adicional se negocia.</p>
+      </article>
+
+      <!-- Pro -->
+      <article class="plan reveal">
+        <div class="plan-head">
+          <span class="plan-icon"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+          <div><h3 class="plan-name">Pro</h3><p class="plan-type">Web + Bot + Dashboard Comercial</p></div>
+        </div>
+        <p class="plan-price"><span class="cur">$</span>499<span class="cents">.99</span></p>
+        <p class="plan-once">Pago único del proyecto</p>
+        <p class="plan-pitch">Claridad total: cuántos clientes entran y qué productos venden más.</p>
+        <p class="plan-for">Para empresas en crecimiento que necesitan medir sus canales de captación y su operación.</p>
+        <ul class="plan-list">
+          <li class="is-base"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del Plan Plus</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Dashboard comercial en tiempo real: visitas, productos más consultados, solicitudes por día/semana y estado de clientes</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Mini CRM de prospectos: Contacto inicial, Presupuesto enviado, Vendido y Perdido</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Reporte visual de rendimiento</li>
+        </ul>
+        <div class="plan-extra">
+          <p>Valor agregado</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-plus"/></svg>Exportación de tu base de datos a Excel/CSV</li>
+            <li><svg aria-hidden="true"><use href="#i-plus"/></svg>Avisos automáticos por correo o Telegram de clientes de alto valor</li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost btn-block plan-cta" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20me%20interesa%20el%20Plan%20Pro%20(Web%20%2B%20Bot%20%2B%20Dashboard%2C%20%24499.99)." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg> Empezar ahora</a>
+      </article>
+
+      <!-- Premium -->
+      <article class="plan reveal">
+        <div class="plan-head">
+          <span class="plan-icon"><svg aria-hidden="true"><use href="#i-layers"/></svg></span>
+          <div><h3 class="plan-name">Premium</h3><p class="plan-type">Ecosistema Digital e Integraciones</p></div>
+        </div>
+        <p class="plan-price"><span class="cur">$</span>999<span class="cents">.99</span></p>
+        <p class="plan-once">Pago único del proyecto</p>
+        <p class="plan-pitch">Elimina el doble trabajo manual en inventarios y procesos internos.</p>
+        <p class="plan-for">Para empresas consolidadas o distribuidoras con inventario físico que necesitan su web sincronizada en tiempo real.</p>
+        <ul class="plan-list">
+          <li class="is-base"><svg aria-hidden="true"><use href="#i-check"/></svg>Todo lo del Plan Pro</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Conexión vía API/Webhooks con tu facturación, inventario o ERP (stock y caja sincronizados)</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Bot de WhatsApp conectado a tu base de datos: consulta de stock y pedidos en tiempo real</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Infraestructura escalable y servidores dedicados</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Capacitación y documentación</li>
+        </ul>
+        <div class="plan-extra">
+          <p>Valor agregado</p>
+          <ul>
+            <li><svg aria-hidden="true"><use href="#i-plus"/></svg>Roles y permisos de usuario</li>
+            <li><svg aria-hidden="true"><use href="#i-plus"/></svg>Mantenimiento continuo con respaldos diarios</li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost btn-block plan-cta" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20quiero%20agendar%20una%20auditor%C3%ADa%20para%20el%20Plan%20Premium%20(Ecosistema%20Digital%2C%20%24999.99)." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar auditoría</a>
+      </article>
+    </div>
+
+    <!-- Reglas comerciales -->
+    <div class="terms glass reveal">
+      <div class="term">
+        <span class="term-icon"><svg aria-hidden="true"><use href="#i-refresh"/></svg></span>
+        <div>
+          <h3>Renovación y mantenimiento</h3>
+          <p>Dominio y hosting <b>gratis el primer año</b>. Desde el año 2, la renovación anual de dominio, hosting y mantenimiento es de <b>$50 – $100</b>.</p>
+          <p class="term-sub">Opcional para Plus y Pro: mantenimiento mensual de $30 – $60.</p>
+        </div>
+      </div>
+      <div class="term">
+        <span class="term-icon"><svg aria-hidden="true"><use href="#i-split"/></svg></span>
+        <div>
+          <h3>Facilidades de pago</h3>
+          <p><b>50% para iniciar</b> y <b>50% contra entrega</b>. Sin pagos ocultos.</p>
+        </div>
+      </div>
+      <div class="term">
+        <span class="term-icon"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span>
+        <div>
+          <h3>Métodos aceptados</h3>
+          <ul class="pay-chips">
+            <li>Divisas electrónicas</li>
+            <li>Efectivo</li>
+            <li>Pago Móvil</li>
+            <li>Binance Pay</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. CASOS DE ÉXITO ============ -->
+<section class="section cases" id="casos">
+  <div class="container">
+    <header class="section-head reveal">
+      <p class="kicker"><span>04</span> Casos de éxito</p>
+      <h2>Resultados que <span class="grad-text">se miden en horas y dinero.</span></h2>
+    </header>
+
+    <div class="carousel reveal" data-carousel>
+      <div class="carousel-track" data-track>
+        <figure class="tcard glass">
+          <svg class="tq" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>“Antes tardábamos 3 horas en hacer el inventario, con el sistema de KEHO lo hacemos en 15 minutos.”</blockquote>
+          <div class="tmetric"><b>-92%</b><span>tiempo de inventario</span></div>
+          <figcaption>
+            <span class="tavatar tavatar-fb" aria-hidden="true">MR</span>
+            <span><b>María Fernanda Rojas</b><small>Gerente · Minimarket El Llano</small></span>
+          </figcaption>
+        </figure>
+        <figure class="tcard glass">
+          <svg class="tq" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>“El bot de WhatsApp toma los pedidos mientras cocinamos. Los viernes ya no perdemos clientes por no contestar a tiempo.”</blockquote>
+          <div class="tmetric"><b>+38%</b><span>pedidos por WhatsApp</span></div>
+          <figcaption>
+            <span class="tavatar tavatar-fb" aria-hidden="true">AC</span>
+            <span><b>Andrés Contreras</b><small>Dueño · Arepera Los Andes</small></span>
+          </figcaption>
+        </figure>
+        <figure class="tcard glass">
+          <svg class="tq" aria-hidden="true"><use href="#i-quote"/></svg>
+          <blockquote>“Con el dashboard descubrimos que dos productos nos hacían perder dinero. En un mes subimos el margen y dejamos de adivinar.”</blockquote>
+          <div class="tmetric"><b>+9 pts</b><span>de margen en 30 días</span></div>
+          <figcaption>
+            <span class="tavatar tavatar-fb" aria-hidden="true">GM</span>
+            <span><b>Gabriela Méndez</b><small>Directora · Distribuidora Sierra Nevada</small></span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="carousel-ctrl">
+        <button type="button" class="cbtn" data-prev aria-label="Testimonio anterior"><svg aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-chevron"/></svg></button>
+        <div class="cdots" data-dots></div>
+        <button type="button" class="cbtn" data-next aria-label="Testimonio siguiente"><svg aria-hidden="true"><use href="#i-chevron"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. SOBRE NOSOTROS / FILOSOFÍA ============ -->
+<section class="section about" id="nosotros">
+  <svg class="about-k" aria-hidden="true"><use href="#keho-k-mono"/></svg>
+  <div class="container about-grid">
+    <div class="about-copy reveal">
+      <p class="kicker"><span>05</span> Filosofía</p>
+      <h2>No somos la <span class="grad-text">típica agencia.</span></h2>
+      <p class="about-text">Somos ingenieros y analistas de negocio. No hacemos páginas web para desaparecer después. Nos asociamos contigo para auditar tus procesos, encontrar las fugas de dinero y taparlas con tecnología escalable desde el día uno.</p>
+      <a class="btn btn-primary" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20quiero%20una%20auditor%C3%ADa%20de%20procesos." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg> Quiero mi auditoría</a>
+    </div>
+    <ol class="steps">
+      <li class="step glass reveal"><span class="step-n">01</span><div><h3>Auditoría</h3><p>Analizamos cómo vendes, atiendes y controlas tu operación hoy.</p></div></li>
+      <li class="step glass reveal"><span class="step-n">02</span><div><h3>Diagnóstico de fugas</h3><p>Medimos dónde se pierde tiempo y dinero, con números concretos.</p></div></li>
+      <li class="step glass reveal"><span class="step-n">03</span><div><h3>Implementación</h3><p>Construimos el bot, el sistema o el dashboard a la medida de tu negocio.</p></div></li>
+      <li class="step glass reveal"><span class="step-n">04</span><div><h3>Socios de eficiencia</h3><p>Medimos resultados, damos soporte y escalamos contigo.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 9. FAQ ============ -->
+<section class="section faq" id="faq">
+  <div class="container faq-grid">
+    <header class="section-head reveal">
+      <p class="kicker"><span>06</span> Preguntas frecuentes</p>
+      <h2>Resolvemos tus <span class="grad-text">dudas.</span></h2>
+      <p class="lead">¿Tienes otra pregunta? Escríbele a nuestro asistente o directamente por WhatsApp.</p>
+    </header>
+    <div class="accordion" data-accordion>
+      <details class="acc reveal" open>
+        <summary><span>¿Es muy caro implementar IA en mi negocio local?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <div class="acc-body"><p>No. Nuestros planes empiezan en $199.99 como pago único, con 50% al iniciar y 50% al entregar. Empiezas por el proceso que más dinero te hace perder y la inversión se paga con las horas y ventas que recuperas. <a href="#planes">Ver planes y precios</a>.</p></div>
+      </details>
+      <details class="acc reveal">
+        <summary><span>¿Necesito saber de tecnología para usar sus sistemas?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <div class="acc-body"><p>Para nada. Todo se diseña para que tu equipo lo use desde el primer día, desde el teléfono o la computadora. Incluimos capacitación y soporte cercano para que nunca te quedes solo.</p></div>
+      </details>
+      <details class="acc reveal">
+        <summary><span>¿Cuánto tardan en desarrollar un bot de WhatsApp?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <div class="acc-body"><p>Un bot de pedidos y atención suele estar listo en 1 a 3 semanas, según la cantidad de productos, integraciones y flujos que necesites. Te mostramos avances cada semana.</p></div>
+      </details>
+      <details class="acc reveal">
+        <summary><span>¿Trabajan solo en Mérida?</span><svg aria-hidden="true"><use href="#i-plus"/></svg></summary>
+        <div class="acc-body"><p>Estamos en Mérida, Venezuela, y trabajamos de forma remota con negocios de cualquier ciudad o país.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final-cta">
+  <div class="container">
+    <div class="final-box reveal">
+      <svg class="final-k" aria-hidden="true"><use href="#keho-k"/></svg>
+      <h2>Tu competencia ya está automatizando. <span class="grad-text">¿Y tú?</span></h2>
+      <p>Agenda una auditoría gratuita de 30 minutos y descubre dónde se escapa el dinero de tu negocio.</p>
+      <a class="btn btn-primary btn-lg" href="https://wa.me/584247006292?text=Hola%20KEHO%2C%20quiero%20agendar%20mi%20auditor%C3%ADa%20gratuita." target="_blank" rel="noopener" data-magnetic><svg aria-hidden="true"><use href="#i-wa"/></svg> Agendar Auditoría gratis</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 10. FOOTER ============ -->
+<footer class="footer">
+  <svg class="footer-k" aria-hidden="true"><use href="#keho-k-mono"/></svg>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="KEHO, ir al inicio">
+          <svg class="brand-k" aria-hidden="true"><use href="#keho-k"/></svg>
+          <span class="brand-word">KEHO</span>
+        </a>
+        <p class="footer-tag">Desarrollo web · Chatbots IA · Software · Business Intelligence</p>
+        <p class="footer-claim">Ideas que se convierten en soluciones.</p>
+      </div>
+      <nav class="footer-col" aria-label="Enlaces rápidos">
+        <h3>Navegación</h3>
+        <a href="#servicios">Servicios</a>
+        <a href="#demos">Demos</a>
+        <a href="#planes">Planes y precios</a>
+        <a href="#casos">Casos</a>
+        <a href="#faq">Preguntas frecuentes</a>
+      </nav>
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <a href="https://wa.me/584247006292" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg> +58 424 700 6292</a>
+        <a href="https://wa.me/584247133026" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg> +58 424 713 3026</a>
+        <a href="mailto:contacto.keho@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg> contacto.keho@gmail.com</a>
+        <a href="https://instagram.com/somoskeho" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg> @somoskeho</a>
+        <span><svg aria-hidden="true"><use href="#i-pin"/></svg> Mérida, Venezuela / Remoto</span>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>© <span data-year>2026</span> KEHO. Todos los derechos reservados.</p>
+      <p><a class="legal-link" href="privacidad.html">Política de privacidad · Términos de uso</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ TRIAGE CHATBOT FLOTANTE ============ -->
+<div class="bot" data-bot>
+  <div class="bot-teaser" data-bot-teaser role="status">
+    <button type="button" class="bot-teaser-x" aria-label="Cerrar aviso" data-teaser-close><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    <p>Soy el asistente de eficiencia de KEHO. ¿Qué proceso de tu negocio te da más dolores de cabeza?</p>
+  </div>
+  <section class="bot-panel" data-bot-panel aria-label="Asistente de eficiencia KEHO" hidden>
+    <header class="bot-head">
+      <span class="bot-av"><svg aria-hidden="true"><use href="#keho-k"/></svg></span>
+      <div><b>Asistente KEHO</b><small><i></i> Responde al instante</small></div>
+      <button type="button" class="bot-x" aria-label="Cerrar asistente" data-bot-close><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </header>
+    <div class="bot-body" data-bot-body aria-live="polite"></div>
+    <div class="bot-quick" data-bot-quick></div>
+    <form class="bot-input" data-bot-form>
+      <label class="sr-only" for="bot-text">Escribe tu mensaje</label>
+      <input id="bot-text" type="text" maxlength="400" placeholder="Escribe tu mensaje…" autocomplete="off">
+      <button type="submit" aria-label="Enviar"><svg aria-hidden="true"><use href="#i-send"/></svg></button>
+    </form>
+  </section>
+  <button type="button" class="bot-fab" data-bot-toggle aria-label="Abrir asistente KEHO" aria-expanded="false">
+    <svg class="fab-k" aria-hidden="true"><use href="#i-bot"/></svg>
+    <svg class="fab-x" aria-hidden="true"><use href="#i-close"/></svg>
+    <span class="fab-badge">1</span>
+  </button>
+</div>
+
+<script defer src="lib/manifest.js?v=20261010"></script>
+<script defer src="main.js?v=20261010"></script>
+</body>
+</html>
