@@ -2,7 +2,7 @@
   "use strict";
 
   var data = window.__BRAND__ || {};
-  var contact = data.contact || { whatsapp: "584247006292", email: "contacto.keho@gmail.com" };
+  var contact = data.contact || { whatsapp: "584145084363", email: "contacto.keho@gmail.com" };
   var endpoints = data.endpoints || { chat: "asistente-ia.php", lead: "lead.php" };
 
   var $ = function (sel, scope) { return (scope || document).querySelector(sel); };
