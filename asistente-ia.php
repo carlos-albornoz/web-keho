@@ -54,13 +54,13 @@ if (count($inLastMin) >= $PER_MIN) {
   reply_json('Vas muy rápido 🙂 Espera unos segundos y vuelve a preguntarme.');
 }
 if (count($inLastDay) >= $PER_DAY) {
-  reply_json('Has hecho ya muchas consultas hoy. Para seguir, escríbenos por WhatsApp al +58 414 508 4363 y te atendemos personalmente.');
+  reply_json('Has hecho ya muchas consultas hoy. Para seguir, escríbenos por WhatsApp al +58 424 800 0597 y te atendemos personalmente.');
 }
 
 $gFile  = $tmp . '/keho_rl_global_' . $today . '.txt';
 $gCount = is_file($gFile) ? (int) @file_get_contents($gFile) : 0;
 if ($gCount >= $GLOBAL_DAY) {
-  reply_json('El asistente está muy solicitado ahora mismo. Escríbenos por WhatsApp al +58 414 508 4363 y te respondemos enseguida.');
+  reply_json('El asistente está muy solicitado ahora mismo. Escríbenos por WhatsApp al +58 424 800 0597 y te respondemos enseguida.');
 }
 
 // --- Clave: entorno -> fichero fuera de public_html -> secret_config.php ---
@@ -100,7 +100,7 @@ $stamps   = array_slice($stamps, -300);
 // --- Prompt de sistema (persona + base de conocimiento) ---
 $system = @include __DIR__ . '/knowledge.php';
 if (!is_string($system) || $system === '') {
-  $system = 'Eres el asistente de eficiencia de KEHO, agencia de automatización, IA, software a medida y analítica de datos para negocios. Responde en español, breve, e invita a agendar una auditoría gratuita por WhatsApp (+58 414 508 4363).';
+  $system = 'Eres el asistente de eficiencia de KEHO, agencia de automatización, IA, software a medida y analítica de datos para negocios. Responde en español, breve, e invita a agendar una auditoría gratuita por WhatsApp (+58 424 800 0597).';
 }
 
 $contents = [];

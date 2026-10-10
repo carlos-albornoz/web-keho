@@ -94,7 +94,7 @@ if (function_exists('mail')) {
     . "- Pérdida estimada: $" . $perdida . " al mes\n"
     . "- Con KEHO, ese trabajo tomaría aprox.: " . ($row['min_con_keho_sem'] ?? '—') . " minutos por semana\n\n"
     . "Es una estimación orientativa. En una auditoría gratuita de 30 minutos revisamos tus procesos y te mostramos el ahorro real.\n\n"
-    . "Agenda por WhatsApp: https://wa.me/584145084363\n\nEquipo KEHO\nIdeas que se convierten en soluciones.\n";
+    . "Agenda por WhatsApp: https://wa.me/584248000597\n\nEquipo KEHO\nIdeas que se convierten en soluciones.\n";
   @mail($email, '=?UTF-8?B?' . base64_encode('Tu reporte de eficiencia · KEHO') . '?=', $reporte, $headers);
 }
 
